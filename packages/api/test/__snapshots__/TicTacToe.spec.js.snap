@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TicTacToe 2,3 x 1`] = `
+Array [
+  Array [
+    null,
+    null,
+    "x",
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+]
+`;
