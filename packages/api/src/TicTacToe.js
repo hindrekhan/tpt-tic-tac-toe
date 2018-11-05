@@ -9,10 +9,10 @@ module.exports = class TicTacToe {
 
   victory() {
     let vic = null;
-    this.fields.forEach((arr, index) => {
+    this.fields.forEach((arr) => {
       let vicTmpX = true;
       let vicTmpO = true;
-      arr.forEach((val, index2) => {
+      arr.forEach((val) => {
         if (val !== 'X') {
           vicTmpX = false;
         }
@@ -29,44 +29,44 @@ module.exports = class TicTacToe {
     });
 
     this.fields[0].forEach((v, index) => {
-       if (this.fields[0][index] !== null 
-        && this.fields[0][index] === this.fields[1][index] 
+      if (this.fields[0][index] !== null
+        && this.fields[0][index] === this.fields[1][index]
         && this.fields[1][index] === this.fields[2][index]) {
         vic = this.fields[0][index];
-       }
+      }
     });
 
-    if (this.fields[0][0] !== null 
-      && this.fields[0][0] === this.fields[1][1] 
+    if (this.fields[0][0] !== null
+      && this.fields[0][0] === this.fields[1][1]
       && this.fields[1][1] === this.fields[2][2]) {
       return this.fields[1][1];
     }
 
-    if (this.fields[0][2] !== null 
-      && this.fields[0][2] === this.fields[1][1] 
+    if (this.fields[0][2] !== null
+      && this.fields[0][2] === this.fields[1][1]
       && this.fields[1][1] === this.fields[2][0]) {
       return this.fields[1][1];
     }
 
     return vic;
-
   }
 
   makeTurn(x, y, type) {
     if (x < 0 || x > 2 || y < 0 || y > 2) {
-        throw Error('not a valid coordinate');
+      throw Error('not a valid coordinate');
     }
 
-    if(isNaN(x) || isNaN(y)) {
-        throw Error('bad input');
+    // eslint-disable-next-line no-restricted-globals
+    if (isNaN(x) || isNaN(y)) {
+      throw Error('bad input');
     }
 
-    if(parseInt(x, 10) !== x && parseInt(y, 10) !== y) {
+    if (parseInt(x, 10) !== x && parseInt(y, 10) !== y) {
       throw Error('bad input number (int only)');
     }
 
-    if(type !== 'X' && type !== 'O') {
-        throw Error('bad type');
+    if (type !== 'X' && type !== 'O') {
+      throw Error('bad type');
     }
 
     if (this.fields[+x][+y] !== null) {
