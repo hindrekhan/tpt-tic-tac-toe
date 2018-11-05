@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TicTacToe 2,3 x 1`] = `
+exports[`TicTacToe 2,3 X 1`] = `
 Array [
   Array [
     null,
     null,
-    "x",
+    "X",
   ],
   Array [
     null,
@@ -14,6 +14,46 @@ Array [
   ],
   Array [
     null,
+    null,
+    null,
+  ],
+]
+`;
+
+exports[`TicTacToe victory 1 1`] = `
+Array [
+  Array [
+    "X",
+    "X",
+    "X",
+  ],
+  Array [
+    "O",
+    "O",
+    null,
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+]
+`;
+
+exports[`TicTacToe victory 2 1`] = `
+Array [
+  Array [
+    "X",
+    "O",
+    null,
+  ],
+  Array [
+    "X",
+    "O",
+    null,
+  ],
+  Array [
+    "X",
     null,
     null,
   ],
