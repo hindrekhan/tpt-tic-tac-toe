@@ -1,5 +1,5 @@
 {
-  "name": "tpt-tic-tac-toe-api",
+  "name": "api",
   "license": "UNLICENSED",
   "main": "src/main.js",
   "scripts": {
