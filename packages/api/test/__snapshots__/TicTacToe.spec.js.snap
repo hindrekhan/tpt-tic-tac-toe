@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TicTacToe 2,3 X 1`] = `
+Array [
+  Array [
+    null,
+    null,
+    "X",
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+]
+`;
+
+exports[`TicTacToe victory 1 - side 1`] = `
+Array [
+  Array [
+    "X",
+    "X",
+    "X",
+  ],
+  Array [
+    "O",
+    "O",
+    null,
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+]
+`;
+
+exports[`TicTacToe victory 2 - up/down 1`] = `
+Array [
+  Array [
+    "X",
+    "O",
+    null,
+  ],
+  Array [
+    "O",
+    "X",
+    null,
+  ],
+  Array [
+    null,
+    null,
+    "X",
+  ],
+]
+`;
+
+exports[`TicTacToe victory 3 - diagonal 1 1`] = `
+Array [
+  Array [
+    "X",
+    "O",
+    null,
+  ],
+  Array [
+    null,
+    "X",
+    "O",
+  ],
+  Array [
+    null,
+    null,
+    "X",
+  ],
+]
+`;
