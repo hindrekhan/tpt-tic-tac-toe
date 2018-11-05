@@ -45,7 +45,7 @@ describe('TicTacToe', () => {
         }).toThrow('bad input number (int only)');
     });
 
-    it('victory 1', () => {
+    it('victory 1 - side', () => {
         const t = new TicTacToe();
         t.makeTurn(0,0,'X');
         expect(t.victory()).toBe(null);
@@ -60,19 +60,43 @@ describe('TicTacToe', () => {
         expect(t.victory()).toBe('X');
     });
 
-    it('victory 2', () => {
+    it('victory 2 - up/down', () => {
         const t = new TicTacToe();
         t.makeTurn(0,0,'X');
         expect(t.victory()).toBe(null);
         t.makeTurn(0,1,'O');
         expect(t.victory()).toBe(null);
-        t.makeTurn(1,0,'X');
+        t.makeTurn(1,1,'X');
         expect(t.victory()).toBe(null);
-        t.makeTurn(1,1,'O');
+        t.makeTurn(1,0,'O');
         expect(t.victory()).toBe(null);
-        t.makeTurn(2,0,'X');
+        t.makeTurn(2,2,'X');
         expect(t.getFields()).toMatchSnapshot();
         expect(t.victory()).toBe('X');
+    });
+
+    it('victory 3 - diagonal 1', () => {
+        const t = new TicTacToe();
+        t.makeTurn(0,0,'X');
+        expect(t.victory()).toBe(null);
+        t.makeTurn(0,1,'O');
+        expect(t.victory()).toBe(null);
+        t.makeTurn(1,1,'X');
+        expect(t.victory()).toBe(null);
+        t.makeTurn(1,2,'O');
+        expect(t.victory()).toBe(null);
+        t.makeTurn(2,2,'X');
+        expect(t.getFields()).toMatchSnapshot();
+        expect(t.victory()).toBe('X');
+    });
+
+    it('victory 3 - diagonal 2', () => {
+        const t = new TicTacToe([
+            [null, null, 'O'],
+            [null, 'O', null],
+            ['O', null, null],
+          ]);
+        expect(t.victory()).toBe('O');
     });
 
   });

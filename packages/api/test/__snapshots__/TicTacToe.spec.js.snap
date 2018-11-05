@@ -20,7 +20,7 @@ Array [
 ]
 `;
 
-exports[`TicTacToe victory 1 1`] = `
+exports[`TicTacToe victory 1 - side 1`] = `
 Array [
   Array [
     "X",
@@ -40,7 +40,7 @@ Array [
 ]
 `;
 
-exports[`TicTacToe victory 2 1`] = `
+exports[`TicTacToe victory 2 - up/down 1`] = `
 Array [
   Array [
     "X",
@@ -48,14 +48,34 @@ Array [
     null,
   ],
   Array [
+    "O",
+    "X",
+    null,
+  ],
+  Array [
+    null,
+    null,
+    "X",
+  ],
+]
+`;
+
+exports[`TicTacToe victory 3 - diagonal 1 1`] = `
+Array [
+  Array [
     "X",
     "O",
     null,
   ],
   Array [
+    null,
     "X",
+    "O",
+  ],
+  Array [
     null,
     null,
+    "X",
   ],
 ]
 `;

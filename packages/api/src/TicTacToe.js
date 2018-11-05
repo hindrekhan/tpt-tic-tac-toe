@@ -1,10 +1,10 @@
 module.exports = class TicTacToe {
-  constructor() {
-    this.fields = [
-      [null, null, null],
-      [null, null, null],
-      [null, null, null],
-    ];
+  constructor(fields = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ]) {
+    this.fields = fields;
   }
 
   victory() {
@@ -36,7 +36,20 @@ module.exports = class TicTacToe {
        }
     });
 
+    if (this.fields[0][0] !== null 
+      && this.fields[0][0] === this.fields[1][1] 
+      && this.fields[1][1] === this.fields[2][2]) {
+      return this.fields[1][1];
+    }
+
+    if (this.fields[0][2] !== null 
+      && this.fields[0][2] === this.fields[1][1] 
+      && this.fields[1][1] === this.fields[2][0]) {
+      return this.fields[1][1];
+    }
+
     return vic;
+
   }
 
   makeTurn(x, y, type) {
