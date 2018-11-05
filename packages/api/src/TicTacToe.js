@@ -8,6 +8,10 @@ module.exports = class TicTacToe {
   }
 
   makeTurn(x, y, type) {
+    if (x < 0 || x > 2 || y < 0 || y > 2) {
+        throw Error('not a valid coordinate');
+    }
+
     if (this.fields[x][y] !== null) {
       throw Error('spot already used');
     }
