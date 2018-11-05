@@ -9,7 +9,7 @@
   "testEnvironment": "node",
   "verbose": true,
   "forceExit": true,
-  "collectCoverage": false,
+  "collectCoverage": true,
   "collectCoverageFrom": [
     "src/**/*.js",
     "!**/node_modules/**"
