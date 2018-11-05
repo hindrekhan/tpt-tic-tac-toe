@@ -1,0 +1,12 @@
+/.idea/
+/.vscode/
+*.log
+
+/build
+/dist
+/packages/*/build
+/packages/*/dist
+/coverage
+/packages/*/coverage
+/node_modules
+/packages/*/node_modules

@@ -1,0 +1,23 @@
+{
+  "testMatch": [
+    "**/(test|__test__)/**/*.spec.js?(x)"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json"
+  ],
+  "testEnvironment": "node",
+  "verbose": true,
+  "forceExit": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.js",
+    "!**/node_modules/**"
+  ],
+  "coverageReporters": [
+    "text",
+    "text-summary",
+    "lcov"
+  ],
+  "coverageDirectory": "<rootDir>/coverage"
+}

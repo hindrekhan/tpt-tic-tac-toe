@@ -1,0 +1,9 @@
+extends:
+  - '../../../.eslintrc.yml'
+
+env:
+  # https://eslint.org/docs/user-guide/configuring#specifying-environments
+  # add all of the jest testing global variables.
+  jest: true
+
+

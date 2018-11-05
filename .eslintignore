@@ -1,0 +1,8 @@
+# ignore snapshots
+/packages/**/test/**/__snapshots__
+
+# ignore build tool config files
+package.json
+composer.json
+nodemon*.json
+tsconfig*.json
