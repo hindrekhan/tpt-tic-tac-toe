@@ -97,4 +97,22 @@ describe('TicTacToe', () => {
     ]);
     expect(t.victory()).toBe('O');
   });
+
+  it('isTie', () => {
+    const t = new TicTacToe([
+      ['O', 'X', 'O'],
+      ['X', 'X', 'O'],
+      ['O', 'O', 'X'],
+    ]);
+    expect(t.tie()).toBe(true);
+  });
+
+  it('!isTie', () => {
+    const t = new TicTacToe([
+      ['X', 'O', 'X'],
+      ['X', 'X', null],
+      ['O', 'O', 'X'],
+    ]);
+    expect(t.tie()).toBe(false);
+});
 });

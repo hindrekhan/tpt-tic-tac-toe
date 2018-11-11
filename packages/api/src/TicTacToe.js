@@ -50,7 +50,22 @@ module.exports = class TicTacToe {
 
     return vic;
   }
+  
+  tie() {
+    let isTie = false;
 
+    this.fields.forEach((arr) => {
+      arr.forEach((val) => {
+        if (val === null || this.victory()){
+          isTie = false;
+        }
+        else if (val !== null){
+          isTie = true;
+        }
+      });
+    })
+    return isTie;
+  }
   makeTurn(x, y, type) {
     if (x < 0 || x > 2 || y < 0 || y > 2) {
       throw Error('not a valid coordinate');
