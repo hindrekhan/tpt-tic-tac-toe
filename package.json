@@ -7,7 +7,7 @@
     "bootstrap": "npm install && npm run lerna_bootstrap",
     "lerna_bootstrap": "lerna bootstrap",
     "lint": "eslint --format node_modules/eslint-friendly-formatter --ignore-path .gitignore --ext .js .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:api": "cd packages/api && npm run test"
   },
   "repository": {
     "type": "git",

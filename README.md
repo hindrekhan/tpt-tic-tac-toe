@@ -1,6 +1,6 @@
 ```bash
 # install all packages
-npm bootstrap
+npm run bootstrap
 
 # start projects
 npm run start

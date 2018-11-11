@@ -7,4 +7,7 @@ install:
   - npm run bootstrap
 
 script:
+  # run linter
   - npm run lint
+  # test api methods
+  - npm run test:api
