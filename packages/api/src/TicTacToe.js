@@ -1,10 +1,11 @@
 module.exports = class TicTacToe {
-  constructor(fields = [
+  constructor(firstTurn, fields = [
     [null, null, null],
     [null, null, null],
     [null, null, null],
   ]) {
     this.fields = fields;
+    this.turn = firstTurn;
   }
 
   victory() {
@@ -50,22 +51,22 @@ module.exports = class TicTacToe {
 
     return vic;
   }
-  
+
   tie() {
     let isTie = false;
 
     this.fields.forEach((arr) => {
       arr.forEach((val) => {
-        if (val === null || this.victory()){
+        if (val === null || this.victory()) {
           isTie = false;
-        }
-        else if (val !== null){
+        } else if (val !== null) {
           isTie = true;
         }
       });
-    })
+    });
     return isTie;
   }
+
   makeTurn(x, y, type) {
     if (x < 0 || x > 2 || y < 0 || y > 2) {
       throw Error('not a valid coordinate');
@@ -88,10 +89,24 @@ module.exports = class TicTacToe {
       throw Error('spot already used');
     }
 
+    // if (this.type != this.turn) {
+    //  throw Error('Not your turn')
+    // }
+    // if (this.type == 'X') {
+    // //  this.turn = 'O';
+    // }
+    // else {
+    //  this.turn = 'X';
+    // }
+
     this.fields[+x][+y] = type;
   }
 
   getFields() {
     return this.fields;
   }
+
+  // getTurn() {
+  //  return this.turn;
+  // }
 };

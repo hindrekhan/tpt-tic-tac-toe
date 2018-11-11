@@ -95,6 +95,7 @@ describe('TicTacToe', () => {
       [null, 'O', null],
       ['O', null, null],
     ]);
+    expect(t.getFields()).toMatchSnapshot();
     expect(t.victory()).toBe('O');
   });
 
@@ -114,5 +115,5 @@ describe('TicTacToe', () => {
       ['O', 'O', 'X'],
     ]);
     expect(t.tie()).toBe(false);
-});
+  });
 });

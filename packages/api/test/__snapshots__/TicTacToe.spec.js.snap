@@ -79,3 +79,23 @@ Array [
   ],
 ]
 `;
+
+exports[`TicTacToe victory 3 - diagonal 2 1`] = `
+Array [
+  Array [
+    null,
+    null,
+    null,
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+]
+`;
