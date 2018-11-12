@@ -123,4 +123,47 @@ describe('TicTacToe', () => {
     ]);
     expect(t.tie()).toBe(false);
   });
+
+  it('same player double turn error', () => {
+    const t = new TicTacToe();
+    t.makeTurn(0, 0, 'X');
+    expect(t.victory()).toBe(null);    
+    expect(() => {     
+      t.makeTurn(0, 1, 'X'); 
+    }).toThrow('Same player makes double turn');
+  });
+
+  
+  it('Cant make turn when tie', () => {
+    const t = new TicTacToe([
+      ['O', 'X', 'O'],
+      ['X', 'X', 'O'],
+      ['O', 'O', 'X'],
+    ]);
+    expect(t.tie()).toBe(true);
+    expect(() => {     
+      t.makeTurn(0, 1, 'X'); 
+    }).toThrow('Cant make turn when tie');
+  });
+  it('Cant make turn when in victory state', () => {
+    const t = new TicTacToe([
+      ['X', 'X', 'O'],
+      ['O', 'X', 'O'],
+      ['O', 'O', 'X'],
+    ]);
+    expect(t.victory()).toBe('X');
+    expect(() => {     
+      t.makeTurn(0, 1, 'X'); 
+    }).toThrow('Cant make turn when someone has won');
+  });
+  it('not to tie', () => {
+    const t = new TicTacToe([
+      [null, 'X', 'O'],
+      [null, 'X', null],
+      [null, null, 'O'],
+    ]);
+    expect(t.tie()).toBe(false);
+    t.makeTurn(1, 2, 'O');
+    expect(t.victory()).toBe('O');
+  })
 });
