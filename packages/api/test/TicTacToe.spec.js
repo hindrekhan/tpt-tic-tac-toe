@@ -1,50 +1,50 @@
 const TicTacToe = require('../src/TicTacToe');
 
 describe('TicTacToe', () => {
-  it('2,3 X', () => {
+  it('makeTurn(2,3,X) test', () => {
     const t = new TicTacToe();
     t.makeTurn(0, 2, 'X');
     expect(t.getFields()[0][2]).toBe('X');
     expect(t.getFields()).toMatchSnapshot();
   });
 
-  it('same turn two times', () => {
+  it('Spot already used test', () => {
     const t = new TicTacToe();
     t.makeTurn(0, 2, 'X');
     expect(() => {
       t.makeTurn(0, 2, 'X');
-    }).toThrow('spot already used');
+    }).toThrow('Spot is already used');
   });
 
-  it('not a valid coordinate', () => {
+  it('Not a valid coordinate test', () => {
     const t = new TicTacToe();
     expect(() => {
       t.makeTurn(0, 5, 'X');
-    }).toThrow('not a valid coordinate');
+    }).toThrow('Not a valid coordinate');
   });
 
-  it('bad input strings', () => {
+  it('bad input test', () => {
     const t = new TicTacToe();
     expect(() => {
       t.makeTurn('x', 'b', 'X');
-    }).toThrow('bad input');
+    }).toThrow('Bad input');
   });
 
-  it('bad type', () => {
+  it('bad type test', () => {
     const t = new TicTacToe();
     expect(() => {
       t.makeTurn(1, 1, 'xx');
-    }).toThrow('bad type');
+    }).toThrow('Bad type');
   });
 
-  it('not integer number', () => {
+  it('Bad input number test', () => {
     const t = new TicTacToe();
     expect(() => {
       t.makeTurn(1.4, '1.56', 'O');
-    }).toThrow('bad input number (int only)');
+    }).toThrow('Bad input number (int only)');
   });
 
-  it('victory 1 - side', () => {
+  it('Victory 1 - side', () => {
     const t = new TicTacToe();
     t.makeTurn(0, 0, 'X');
     expect(t.victory()).toBe(null);
@@ -59,7 +59,7 @@ describe('TicTacToe', () => {
     expect(t.victory()).toBe('X');
   });
 
-  it('victory 2 - up/down', () => {
+  it('Victory 2 - up/down', () => {
     const t = new TicTacToe();
     t.makeTurn(0, 0, 'X');
     expect(t.victory()).toBe(null);
@@ -74,7 +74,7 @@ describe('TicTacToe', () => {
     expect(t.victory()).toBe('X');
   });
 
-  it('victory 3 - diagonal 1', () => {
+  it('Victory 3 - diagonal 1', () => {
     const t = new TicTacToe();
     t.makeTurn(0, 0, 'X');
     expect(t.victory()).toBe(null);
@@ -89,12 +89,31 @@ describe('TicTacToe', () => {
     expect(t.victory()).toBe('X');
   });
 
-  it('victory 3 - diagonal 2', () => {
+  it('Victory 3 - diagonal 2', () => {
     const t = new TicTacToe([
       [null, null, 'O'],
       [null, 'O', null],
       ['O', null, null],
     ]);
+    expect(t.getFields()).toMatchSnapshot();
     expect(t.victory()).toBe('O');
+  });
+
+  it('isTie test', () => {
+    const t = new TicTacToe([
+      ['O', 'X', 'O'],
+      ['X', 'X', 'O'],
+      ['O', 'O', 'X'],
+    ]);
+    expect(t.tie()).toBe(true);
+  });
+
+  it('isTie is false test', () => {
+    const t = new TicTacToe([
+      ['X', 'O', 'X'],
+      ['X', 'X', null],
+      ['O', 'O', 'X'],
+    ]);
+    expect(t.tie()).toBe(false);
   });
 });

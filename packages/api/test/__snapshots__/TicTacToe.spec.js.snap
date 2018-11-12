@@ -1,26 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TicTacToe 2,3 X 1`] = `
-Array [
-  Array [
-    null,
-    null,
-    "X",
-  ],
-  Array [
-    null,
-    null,
-    null,
-  ],
-  Array [
-    null,
-    null,
-    null,
-  ],
-]
-`;
-
-exports[`TicTacToe victory 1 - side 1`] = `
+exports[`TicTacToe Victory 1 - side 1`] = `
 Array [
   Array [
     "X",
@@ -40,7 +20,7 @@ Array [
 ]
 `;
 
-exports[`TicTacToe victory 2 - up/down 1`] = `
+exports[`TicTacToe Victory 2 - up/down 1`] = `
 Array [
   Array [
     "X",
@@ -60,7 +40,7 @@ Array [
 ]
 `;
 
-exports[`TicTacToe victory 3 - diagonal 1 1`] = `
+exports[`TicTacToe Victory 3 - diagonal 1 1`] = `
 Array [
   Array [
     "X",
@@ -76,6 +56,46 @@ Array [
     null,
     null,
     "X",
+  ],
+]
+`;
+
+exports[`TicTacToe Victory 3 - diagonal 2 1`] = `
+Array [
+  Array [
+    null,
+    null,
+    "O",
+  ],
+  Array [
+    null,
+    "O",
+    null,
+  ],
+  Array [
+    "O",
+    null,
+    null,
+  ],
+]
+`;
+
+exports[`TicTacToe makeTurn(2,3,X) test 1`] = `
+Array [
+  Array [
+    null,
+    null,
+    "X",
+  ],
+  Array [
+    null,
+    null,
+    null,
+  ],
+  Array [
+    null,
+    null,
+    null,
   ],
 ]
 `;
