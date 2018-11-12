@@ -1,19 +1,62 @@
 const express = require('express');
 const randomstring = require("randomstring");
 const sum = require('./sum');
+const TicTacToe = require('./TicTacToe');
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 
+const db = {};
+
+function getGameJson(code, game) {
+  return {
+    code,
+    fields: game.getFields(),
+    lastTurn: game.lastTurn,
+    victory: game.victory(),
+    tie: game.tie(),
+  }
+}
+
 app.get('/api/start', (req, res) => {
-  const gameCode = randomstring.generate({
+  const code = randomstring.generate({
     length: 5,
     charset: 'alphabetic'
   });
-  res.json({
-    code: gameCode,
-  });
+  db[code] = new TicTacToe();
+  res.json(getGameJson(code, db[code]));
+});
+
+app.get('/api/makeTurn/:code/:x/:y/:type', (req, res) => {
+  const { code, x, y, type } = req.params;
+  const game = db[code];
+  if (!game) {
+    res.json({
+      'error': 'no game found with given id',
+    });
+    return;
+  }
+  try {
+    game.makeTurn(+x, +y, type);
+    res.json(getGameJson(code, game));
+  } catch(e) {
+    res.json({
+      'error': e.message,
+    });
+  }
+});
+
+app.get('/api/status/:code', (req, res) => {
+  const { code } = req.params;
+  const game = db[code];
+  if (!game) {
+    res.json({
+      'error': 'no game found with given id',
+    });
+    return;
+  }
+  res.json(getGameJson(code, game))
 });
 
 
