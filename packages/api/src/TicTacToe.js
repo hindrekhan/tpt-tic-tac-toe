@@ -5,6 +5,7 @@ module.exports = class TicTacToe {
     [null, null, null],
   ]) {
     this.fields = fields;
+    this.lastTurn = null;
   }
 
   victory() {
@@ -79,10 +80,13 @@ module.exports = class TicTacToe {
         throw Error('Bad type');
       case (this.fields[+x][+y] !== null):
         throw Error('Spot is already used');
+      case (this.lastTurn === type):
+        throw Error('Same player makes double turn');      
       default:
         break;
     }
     this.fields[+x][+y] = type;
+    this.lastTurn = type;
   }
 
   getFields() {

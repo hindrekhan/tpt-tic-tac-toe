@@ -123,4 +123,13 @@ describe('TicTacToe', () => {
     ]);
     expect(t.tie()).toBe(false);
   });
+
+  it('same player double turn error', () => {
+    const t = new TicTacToe();
+    t.makeTurn(0, 0, 'X');
+    expect(t.victory()).toBe(null);    
+    expect(() => {     
+      t.makeTurn(0, 1, 'X'); 
+    }).toThrow('Same player makes double turn');
+  });
 });
