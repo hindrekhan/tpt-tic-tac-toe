@@ -1,101 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TicTacToe Victory 1 - side 1`] = `
-Array [
-  Array [
-    "X",
-    "X",
-    "X",
-  ],
-  Array [
-    "O",
-    "O",
-    null,
-  ],
-  Array [
-    null,
-    null,
-    null,
-  ],
-]
+X|X|X
+O|O|-
+-|-|-
 `;
 
 exports[`TicTacToe Victory 2 - up/down 1`] = `
-Array [
-  Array [
-    "X",
-    "O",
-    null,
-  ],
-  Array [
-    "O",
-    "X",
-    null,
-  ],
-  Array [
-    null,
-    null,
-    "X",
-  ],
-]
+X|O|-
+O|X|-
+-|-|X
 `;
 
 exports[`TicTacToe Victory 3 - diagonal 1 1`] = `
-Array [
-  Array [
-    "X",
-    "O",
-    null,
-  ],
-  Array [
-    null,
-    "X",
-    "O",
-  ],
-  Array [
-    null,
-    null,
-    "X",
-  ],
-]
+X|O|-
+-|X|O
+-|-|X
 `;
 
 exports[`TicTacToe Victory 3 - diagonal 2 1`] = `
-Array [
-  Array [
-    null,
-    null,
-    "O",
-  ],
-  Array [
-    null,
-    "O",
-    null,
-  ],
-  Array [
-    "O",
-    null,
-    null,
-  ],
-]
+-|-|O
+-|O|-
+O|-|-
 `;
 
 exports[`TicTacToe makeTurn(2,3,X) test 1`] = `
-Array [
-  Array [
-    null,
-    null,
-    "X",
-  ],
-  Array [
-    null,
-    null,
-    null,
-  ],
-  Array [
-    null,
-    null,
-    null,
-  ],
-]
+-|-|X
+-|-|-
+-|-|-
 `;

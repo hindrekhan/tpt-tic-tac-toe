@@ -1,5 +1,12 @@
 const TicTacToe = require('../src/TicTacToe');
 
+expect.addSnapshotSerializer({
+  test: val => Array.isArray(val) && val.length === 3,
+  print: val => val.map(
+    val2 => val2.map(v => v || '-').join('|'),
+  ).join('\n'),
+});
+
 describe('TicTacToe', () => {
   it('makeTurn(2,3,X) test', () => {
     const t = new TicTacToe();
