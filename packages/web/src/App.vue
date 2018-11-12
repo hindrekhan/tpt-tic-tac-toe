@@ -3,7 +3,7 @@
     <div v-if="!code && !started">
       <button v-on:click="getCode">get code</button>
       <hr/>
-      <input v-model="code" /> <button>use code</button>
+      <input v-model="codeJoin" /> <button v-on:click="joinGame">use code</button>
     </div>
     <div v-if="code && !started">
       game field
@@ -29,6 +29,7 @@ export default {
       fields: [],
       type: 'X',
       code: '',
+      codeJoin: '',
     };
   },
   components: {
@@ -59,6 +60,15 @@ export default {
           }
           this.fields = data.fields;
         });
+    },
+    joinGame() {
+      axios.get(`http://localhost:3000/api/status/${this.codeJoin}`)
+          .then(({data}) => {
+            this.type = 'O';
+            this.started = true;
+            this.code = data.code;
+            this.fields = data.fields;
+          });
     },
     getCode() {
       axios.get('http://localhost:3000/api/start')
