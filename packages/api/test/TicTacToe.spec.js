@@ -156,4 +156,14 @@ describe('TicTacToe', () => {
       t.makeTurn(0, 1, 'X'); 
     }).toThrow('Cant make turn when someone has won');
   });
+  it('not to tie', () => {
+    const t = new TicTacToe([
+      [null, 'X', 'O'],
+      [null, 'X', null],
+      [null, null, 'O'],
+    ]);
+    expect(t.tie()).toBe(false);
+    t.makeTurn(1, 2, 'O');
+    expect(t.victory()).toBe('O');
+  })
 });

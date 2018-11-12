@@ -69,7 +69,8 @@ app.get('/health_check', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('hello world<br><a href="/sum/1/2">1=2=?</a>');
+  console.log('open');
+  res.send('hello world!<br><a href="/sum/1/2">1=2=?</a>');
 });
 
 app.get('/sum/:a/:b', (req, res) => {
@@ -78,7 +79,7 @@ app.get('/sum/:a/:b', (req, res) => {
   res.send(`${a}+${b}=${s}`);
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(
     `Server is now running on http://localhost:${port}/`,
   );

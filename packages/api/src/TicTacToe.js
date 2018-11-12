@@ -53,18 +53,9 @@ module.exports = class TicTacToe {
   }
 
   tie() {
-    let isTie = false;
-
-    this.fields.forEach((arr) => {
-      arr.forEach((val) => {
-        if (val === null || this.victory()) {
-          isTie = false;
-        } else if (val !== null) {
-          isTie = true;
-        }
-      });
-    });
-    return isTie;
+    return this.fields.map(val => {
+      return val.filter(v => v === null).length === 0
+    }).filter(v => !v).length === 0;
   }
 
   makeTurn(x, y, type) {
