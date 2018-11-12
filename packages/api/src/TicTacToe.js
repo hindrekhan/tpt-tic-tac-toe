@@ -69,6 +69,8 @@ module.exports = class TicTacToe {
 
   makeTurn(x, y, type) {
     switch (true) {
+      case (this.victory() !== null):
+        throw Error('Cant make turn when someone has won');
       case (this.tie()):
         throw Error('Cant make turn when tie');
       case (x < 0 || x > 2 || y < 0 || y > 2):

@@ -145,4 +145,15 @@ describe('TicTacToe', () => {
       t.makeTurn(0, 1, 'X'); 
     }).toThrow('Cant make turn when tie');
   });
+  it('Cant make turn when in victory state', () => {
+    const t = new TicTacToe([
+      ['X', 'X', 'O'],
+      ['O', 'X', 'O'],
+      ['O', 'O', 'X'],
+    ]);
+    expect(t.victory()).toBe('X');
+    expect(() => {     
+      t.makeTurn(0, 1, 'X'); 
+    }).toThrow('Cant make turn when someone has won');
+  });
 });
