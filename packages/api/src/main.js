@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const randomstring = require("randomstring");
 const sum = require('./sum');
 const TicTacToe = require('./TicTacToe');
 
 const app = express();
+
+app.use(cors());
 
 const port = process.env.PORT || 3000;
 
