@@ -1,10 +1,20 @@
 const express = require('express');
-
+const randomstring = require("randomstring");
 const sum = require('./sum');
 
 const app = express();
 
 const port = process.env.PORT || 3000;
+
+app.get('/api/start', (req, res) => {
+  const gameCode = randomstring.generate({
+    length: 5,
+    charset: 'alphabetic'
+  });
+  res.json({
+    code: gameCode,
+  });
+});
 
 
 app.get('/health_check', (req, res) => {

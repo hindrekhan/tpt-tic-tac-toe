@@ -39,5 +39,8 @@
     "*.js": [
       "eslint"
     ]
+  },
+  "dependencies": {
+    "randomstring": "^1.1.5"
   }
 }
