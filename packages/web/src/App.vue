@@ -9,7 +9,7 @@
       game field
     </div>
     <div v-if="started && code">
-      <TicTacToe :code="code" :fields="fields" v-on:makeTurn="makeTurn" />
+      <TicTacToe :code="code" :fields="fields" :tie="tie" :victory="victory" v-on:makeTurn="makeTurn" />
     </div>
   </div>
 </template>
@@ -41,6 +41,8 @@ export default {
       type: 'X',
       code: '',
       codeJoin: '',
+      tie: false,
+      victory: '',
     };
   },
   components: {
@@ -58,7 +60,10 @@ export default {
       }
       axios.get(`${apiUrl}/status/${this.code}`)
           .then(({data}) => {
+            console.log('data', data);
             this.fields = data.fields;
+            this.tie = data.tie;
+            this.victory = data.victory;
           });
     },
     makeTurn(cords) {

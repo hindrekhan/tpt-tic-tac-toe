@@ -1,6 +1,10 @@
 <template>
     <div>
         <div class="code">code: <strong>{{ code }}</strong></div>
+
+        <div v-if="tie" class="tie">GAME IS IN TIE</div>
+        <div v-else-if="victory" class="victory">{{ victory }} won!!!</div>
+
         <table border="1">
             <tr>
                 <td v-on:click="fieldClick(0, 0)">{{ fields[0][0] || '-' }}</td>
@@ -25,6 +29,8 @@
 export default {
   props: {
     code: String,
+    victory: String,
+    tie: Boolean,
     fields: Array
   },
   methods: {
@@ -41,6 +47,16 @@ export default {
     padding-bottom: 15px;
     padding-bottom: 20px;
     font-size: 24px;
+  }
+  .tie {
+    font-size: 20px;
+    color: blue;
+    padding: 10px;
+  }
+  .victory {
+    font-size: 50px;
+    color: green($color: #000000);
+    padding: 20px;
   }
   table {
     border-collapse: collapse;
