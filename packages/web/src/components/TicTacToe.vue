@@ -2,9 +2,9 @@
     <div>
         <div class="code">code: <strong>{{ code }}</strong></div>
 
-        <div v-if="tie" class="tie">GAME IS IN TIE</div>
-        <div v-else-if="victory" class="victory">{{ victory }} won!!!</div>
-
+        <div v-if="victory" class="victory">{{ victory }} won!!!</div>
+        <div v-else-if="tie" class="tie">GAME IS IN TIE</div>
+ 
         <table border="1">
             <tr>
                 <td v-on:click="fieldClick(0, 0)">{{ fields[0][0] || '-' }}</td>
