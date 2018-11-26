@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const randomstring = require("randomstring");
@@ -68,10 +69,7 @@ app.get('/health_check', (req, res) => {
   res.send(`ok:${+new Date()}[${require('os').hostname()}]`);
 });
 
-app.get('/', (req, res) => {
-  console.log('open');
-  res.send('hello world!<br><a href="/sum/1/2">1=2=?</a>');
-});
+app.use('/', express.static(path.resolve(__dirname, '../../web/dist')));
 
 app.get('/sum/:a/:b', (req, res) => {
   const { a, b } = req.params;
