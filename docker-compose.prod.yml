@@ -15,3 +15,7 @@ services:
     ports:
       - 3871:3871
     command: "node src/main.js"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.tictactoe.frontend.rule=Host:tpt2018.kassikas.com"
+      - "traefik.tictactoe.port=3871"
