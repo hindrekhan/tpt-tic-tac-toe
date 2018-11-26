@@ -1,6 +1,6 @@
-<template> 
+<template>
     <div>
-        code: {{ code }}
+        <div class="code">code: <strong>{{ code }}</strong></div>
         <table border="1">
             <tr>
                 <td v-on:click="fieldClick(0, 0)">{{ fields[0][0] || '-' }}</td>
@@ -34,3 +34,22 @@ export default {
   },
 }
 </script>
+
+
+<style lang="scss">
+  .code {
+    padding-bottom: 15px;
+    padding-bottom: 20px;
+    font-size: 24px;
+  }
+  table {
+    border-collapse: collapse;
+    font-size: 24px;
+    margin: auto;
+
+    td {
+      height: 40px;
+      width: 40px;
+    }
+  }
+</style>
