@@ -20,6 +20,17 @@ import axios from 'axios';
 import HelloWorld from './components/HelloWorld.vue';
 import TicTacToe from './components/TicTacToe.vue';
 
+let apiUrl = 'http://localhost:3000/api';
+
+try {
+  const tmpApiUrl = process.env.VUE_APP_APIURL;
+  console.log('tmpApiUrl', tmpApiUrl);
+  if (tmpApiUrl) {
+    apiUrl = tmpApiUrl;
+  }
+} catch (e) {}
+
+console.log('apiUrl', apiUrl);
 
 export default {
   name: 'app',
@@ -45,13 +56,13 @@ export default {
       if (!this.code) {
         return;
       }
-      axios.get(`http://localhost:3000/api/status/${this.code}`)
+      axios.get(`${apiUrl}/status/${this.code}`)
           .then(({data}) => {
             this.fields = data.fields;
           });
     },
     makeTurn(cords) {
-      const url = `http://localhost:3000/api/makeTurn/${this.code}/${cords[0]}/${cords[1]}/${this.type}/`;
+      const url = `${apiUrl}/makeTurn/${this.code}/${cords[0]}/${cords[1]}/${this.type}/`;
       axios.get(url)
         .then(({data}) => {
           if (data.error) {
@@ -62,7 +73,7 @@ export default {
         });
     },
     joinGame() {
-      axios.get(`http://localhost:3000/api/status/${this.codeJoin}`)
+      axios.get(`${apiUrl}/status/${this.codeJoin}`)
           .then(({data}) => {
             this.type = 'O';
             this.started = true;
@@ -71,7 +82,7 @@ export default {
           });
     },
     getCode() {
-      axios.get('http://localhost:3000/api/start')
+      axios.get(`${apiUrl}/start`)
         .then(({data}) => {
           console.log('data', data);
           this.code = data.code;
