@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div v-if="!code && !started">
-      <button v-on:click="getCode">get code</button>
+      <button class="get-code" v-on:click="getCode">get code</button>
       <hr/>
-      <input v-model="codeJoin" /> <button v-on:click="joinGame">use code</button>
+      <input class="i-get-code" v-model="codeJoin" /> <button class="join-code" v-on:click="joinGame">use code</button>
     </div>
     <div v-if="code && !started">
       game field
