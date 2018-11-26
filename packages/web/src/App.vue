@@ -42,6 +42,6 @@ export default {
 }
 
 #game2 {
-  background-color: blueviolet;
+  background-color: lightblue;
 }
 </style>
