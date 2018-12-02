@@ -77,6 +77,12 @@ app.get('/sum/:a/:b', (req, res) => {
   res.send(`${a}+${b}=${s}`);
 });
 
+app.get('/api/random', (req, res) => {
+  res.json({
+    number: Math.floor((Math.random() * 1000) + 1),
+  })
+});
+
 app.listen(port, '0.0.0.0', () => {
   console.log(
     `Server is now running on http://localhost:${port}/`,
